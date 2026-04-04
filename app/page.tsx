@@ -154,7 +154,7 @@ useEffect(() => {
     const semiVariableCostData = semiVariableCostMap[selected];
     const c = calc(d);
 
-    const percent = (value) => ((value / d.selling) * 100).toFixed(1);
+    const percent = (value: number) => ((value / d.selling) * 100).toFixed(1);
     const lineData = [
         { name: "Selling", value: d.selling },
         { name: "Gross", value: c.gross },
@@ -350,7 +350,7 @@ useEffect(() => {
         {["Basic", "Premium", "Ultra"].map((item) => (
           <button
             key={item}
-            onClick={() => setSelected(item)}
+            onClick={() => setSelected(item as "Basic" | "Premium" | "Ultra")}
             className={`flex-1 sm:flex-none px-3 py-2 text-xs sm:text-sm font-semibold rounded-lg border transition-all duration-200
               ${
                 selected === item
